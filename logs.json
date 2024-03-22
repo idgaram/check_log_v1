@@ -1,0 +1,14 @@
+{
+    "_default": {
+        "1": {
+            "url": "http://loryss.fr",
+            "status": "404",
+            "time_test": "12:02:27"
+        },
+        "2": {
+            "url": "http://youtube.com",
+            "status": "200",
+            "time_test": "12:02:27"
+        }
+    }
+}

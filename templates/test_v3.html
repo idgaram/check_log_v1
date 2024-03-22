@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Logs</title>
+  </head>
+  <body>
+    <h1>Logs</h1>
+    <div id="logs"></div>
+
+    <script>
+      fetch("/logs")
+        .then((response) => response.json())
+        .then((data) => {
+          // Assuming data is in the format you provided
+          for (const k in data["_default"]) {
+            if (Object.hasOwnProperty.call(data["_default"], k)) {
+              // pour url 1
+              const logs_url_1 = data["_default"]["1"];
+              const url_1 = logs_url_1.url;
+              const status_1 = logs_url_1.status;
+              const time_test_1 = logs_url_1.time_test;
+
+              // pour url 2
+              const logs_url_2 = data["_default"]["2"];
+              const url_2 = logs_url_2.url;
+              const status_2 = logs_url_2.status;
+              const time_test_2 = logs_url_2.time_test;
+
+              //afficher les données dans le html
+              const logsDiv = document.getElementById("logs");
+              logsDiv.innerHTML = `
+                    <li> Url: ${url_1}</li>
+                    <li> Response of the http status request: ${status_1}</li>
+                    <li> Time of the test: ${time_test_1}</li>
+                    <br></br>
+                    <li> Url: ${url_2}</li>
+                    <li> Response of the http status request: ${status_2}</li>
+                    <li> Time of the test: ${time_test_2}</li>
+                `;
+            }
+          }
+        });
+    </script>
+  </body>
+</html>

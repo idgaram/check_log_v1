@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Parsing</title>
+  </head>
+  <body>
+    <div id="output"></div>
+
+    <script>
+      // recuperation du json
+      fetch("C:\Users\lorys\pypif\flaskstage\pinglog\logs.json")
+        // fetch("C:\Users\lorys\pypif\flaskstage\pinglog\logs.json")
+        .then((Response) => Response.json())
+        .then((data) => {
+          // parsing du json
+          const url = data.url;
+          const status = data.status;
+          const time_test = data.time_test;
+
+          //afficher les données dans le html
+          const outputDiv = document.getElementById("output");
+          outputDiv.innerHTML = `
+                    <li> Url: ${url}</li>
+                    <li> Response of the http status request: ${status}</li>
+                    <li> Time of the test: ${time_test}</li>
+                `;
+        });
+    </script>
+  </body>
+</html>

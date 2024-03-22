@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    image: flask-stage
+    container_name: container-stage
+    stdin_open: true
+    tty: true
+    ports:
+      - 127.0.0.1:9999:9999
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
